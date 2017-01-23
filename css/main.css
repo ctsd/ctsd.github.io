@@ -21,6 +21,7 @@ body {
   align-items: center;
   font-family: 'Droid Sans', arial, sans-serif;
   font-weight: bold;
+  font-size: 14px;
   color: #FFF;
 }
 h1 {
@@ -31,4 +32,47 @@ h1 {
 h1 span {
   position: relative;
   top: 5px;
+}
+div.container {
+  width: 95%;
+  max-width: 1100px;
+  margin: auto;
+}
+div.container ul {
+  margin: auto;
+  width: 100%;
+  padding: 0;
+}
+div.container ul li {
+  width: 250px;
+  display: inline-block;
+  margin-bottom: 25px;
+  background: #000;
+}
+div.container ul li div.cover {
+  width: 100%;
+  max-height: 200px;
+}
+div.container ul li div.cover img {
+  max-width: 100%;
+}
+div.container ul li div.description {
+  padding: 15px 15px;
+}
+div.container ul li div.description h3 {
+  margin: 15px 0;
+  margin-top: 0;
+}
+div.container ul li div.description ul {
+  padding: 0;
+  font-size: 10px;
+}
+div.container ul li div.description ul li {
+  display: inline-block;
+  background: #FFF;
+  color: #000;
+  width: auto;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin: 0 2px;
 }
