@@ -37,6 +37,24 @@ div.container {
   width: 95%;
   max-width: 1100px;
   margin: auto;
+  text-align: center;
+}
+div.container #filters {
+  margin: 40px 0;
+}
+div.container #filters a {
+  display: inline-block;
+  background: #FFF;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #000;
+  margin: 0 10px;
+  transition: background 0.5s, color 0.5s;
+}
+div.container #filters a:hover,
+div.container #filters a.active {
+  background: #000;
+  color: #FFF;
 }
 div.container ul {
   margin: auto;
@@ -44,35 +62,48 @@ div.container ul {
   padding: 0;
 }
 div.container ul li {
-  width: 250px;
+  width: 300px;
   display: inline-block;
-  margin-bottom: 25px;
-  background: #000;
+  position: relative;
+  margin-bottom: 10px;
 }
 div.container ul li div.cover {
   width: 100%;
-  max-height: 200px;
 }
 div.container ul li div.cover img {
   max-width: 100%;
+  display: block;
 }
 div.container ul li div.description {
-  padding: 15px 15px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 div.container ul li div.description h3 {
-  margin: 15px 0;
-  margin-top: 0;
-}
-div.container ul li div.description ul {
-  padding: 0;
-  font-size: 10px;
-}
-div.container ul li div.description ul li {
-  display: inline-block;
-  background: #FFF;
+  margin: auto;
   color: #000;
-  width: auto;
-  padding: 2px 5px;
-  border-radius: 4px;
-  margin: 0 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-style: italic;
+}
+div.container ul li:hover div.description {
+  opacity: 1;
 }

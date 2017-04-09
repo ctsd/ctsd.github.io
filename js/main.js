@@ -1,5 +1,17 @@
+/**
+ * Shuffles array in place. ES6 version
+ * @param {Array} a items The array containing the items.
+ */
+function shuffle(a) {
+  for (let i = a.length; i; i--) {
+    let j = Math.floor(Math.random() * i);
+    [a[i - 1], a[j]] = [a[j], a[i - 1]];
+  }
+}
+
 $(document).ready(function() {
 
+  // Defining items
   var items = [
     {
       title: "HTML5 & semantics",
@@ -153,6 +165,15 @@ $(document).ready(function() {
     },
   ];
 
+  var categories = [];
+  $.each(items, function(index, value) {
+    if (categories.indexOf(value.category) == -1)
+      categories.push(value.category);
+  })
+
+  shuffle(items);
+
+  // Creating item nodes
   $.each(items, function(index, value) {
     var elem = $('.grid .grid-item.initial').clone();
     $(elem).removeClass('initial');
@@ -164,17 +185,41 @@ $(document).ready(function() {
   })
   $('.grid-item.initial').remove();
 
-});
+  $.each(categories, function(index, value) {
+    $('#filters').append('<a href="#" data-category="' + value + '">' + value + '</a>');
+  });
 
-$(document).load(function() {
-
-  $('.grid').isotope({
+  // Initializing Isotope
+  var $grid = $('.grid').isotope({
     itemSelector: '.grid-item',
     layoutMode: 'masonry',
     masonry: {
       columnWidth: 300,
-      gutter: 25
+      gutter: 10,
+      isFitWidth: true
     }
+  });
+
+  $grid.imagesLoaded().progress( function() {
+    $grid.isotope('layout');
+  });
+
+  // Adding triggers on filters
+  function applyFilters() {
+    if (!$('#filters a.active').length)
+      $grid.isotope({ filter: '' });
+    else {
+      var category = $('#filters a.active').data('category');
+      $grid.isotope({ filter: '[data-category="' + category + '"]' });
+    }
+  }
+
+  $('#filters a').click(function(e) {
+    e.preventDefault();
+
+    $(this).siblings('a').removeClass('active');
+    $(this).toggleClass('active');
+    applyFilters();
   });
 
 });
