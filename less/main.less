@@ -2,33 +2,100 @@ html, body {
   width: 100vw;
   height: 100vh;
 
-  background: #4B79A1; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #4B79A1 , #283E51); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(213deg, #4b79a1, #283e51);
+  background-size: 400% 400%;
 
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-	display: -ms-flexbox;      /* TWEENER - IE 10 */
-	display: -webkit-flex;     /* NEW - Chrome */
-	display: flex;
-	-webkit-align-items: center;
-	align-items: center;
+  -webkit-animation: AnimationName 60s ease infinite;
+  -moz-animation: AnimationName 60s ease infinite;
+  animation: AnimationName 60s ease infinite;
 
-  font-family: 'Droid Sans', arial, sans-serif;
-  font-weight: bold;
+  @-webkit-keyframes AnimationName {
+      0%{background-position:92% 0%}
+      50%{background-position:9% 100%}
+      100%{background-position:92% 0%}
+  }
+  @-moz-keyframes AnimationName {
+      0%{background-position:92% 0%}
+      50%{background-position:9% 100%}
+      100%{background-position:92% 0%}
+  }
+  @keyframes AnimationName {
+      0%{background-position:92% 0%}
+      50%{background-position:9% 100%}
+      100%{background-position:92% 0%}
+  }
+
+  font-family: 'Lato', arial, sans-serif;
+  font-weight: 300;
   font-size: 14px;
   color: #FFF;
+
+  padding: 0;
+  margin: 0;
 }
 
-h1 {
-  text-align: center;
-  margin: auto;
-  font-size: 4em;
-}
+.clearfix { clear: both; }
 
-h1 span {
+header {
   position: relative;
-  top: 5px;
+  background: #FFF;
+
+  h1 {
+    text-align: center;
+    font-size: 34px;
+    color: #4B79A1;
+    margin: 0;
+    float: left;
+
+    position: relative;
+    top: 6px;
+
+    span {
+      position: relative;
+      top: 5px;
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 20px;
+      text-align: center;
+      margin: 0;
+
+      li {
+        float: right;
+        padding: 20px 20px;
+        font-family: 'Playfair Display', serif;
+        color: #000;
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          opacity: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: #000;
+
+          transition: opacity 0.5s, bottom 0.5s;
+        }
+      }
+      li.active a::after, li:hover a::after {
+        opacity: 1;
+        bottom: -2px;
+      }
+    }
+  }
+
+
 }
 
 div.container {
@@ -36,6 +103,70 @@ div.container {
   max-width: 1100px;
   margin: auto;
   text-align: center;
+}
+
+#aboutMe {
+  .main-wrapper {
+    margin: 100px auto;
+    text-align: center;
+
+    .picture {
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      margin-bottom: 40px;
+
+      img {
+        border-radius: 50%;
+        max-width: 100%;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 30px;
+      font-weight: 300;
+      color: #FFF;
+
+      a {
+        text-decoration: none;
+        color: #FFF;
+        font-weight: 400;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          background: #FFF;
+          opacity: 0.2;
+          width: 0;
+          height: 100%;
+          transition: width 0.5s;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: #FFF;
+
+          transition: opacity 0.5s, bottom 0.5s;
+        }
+
+      }
+      a:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#whatIDo {
 
   #filters {
     margin: 40px 0;
@@ -61,6 +192,7 @@ div.container {
     margin: auto;
     width: 100%;
     padding: 0;
+    list-style: none;
 
     li {
       width: 300px;

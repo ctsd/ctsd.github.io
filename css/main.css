@@ -2,36 +2,104 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  background: #4B79A1;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #4b79a1, #283e51);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4b79a1, #283e51);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  font-family: 'Droid Sans', arial, sans-serif;
-  font-weight: bold;
+  background: linear-gradient(213deg, #4b79a1, #283e51);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 60s ease infinite;
+  -moz-animation: AnimationName 60s ease infinite;
+  animation: AnimationName 60s ease infinite;
+  font-family: 'Lato', arial, sans-serif;
+  font-weight: 300;
   font-size: 14px;
   color: #FFF;
+  padding: 0;
+  margin: 0;
 }
-h1 {
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 92% 0%;
+  }
+  50% {
+    background-position: 9% 100%;
+  }
+  100% {
+    background-position: 92% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 92% 0%;
+  }
+  50% {
+    background-position: 9% 100%;
+  }
+  100% {
+    background-position: 92% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 92% 0%;
+  }
+  50% {
+    background-position: 9% 100%;
+  }
+  100% {
+    background-position: 92% 0%;
+  }
+}
+.clearfix {
+  clear: both;
+}
+header {
+  position: relative;
+  background: #FFF;
+}
+header h1 {
   text-align: center;
-  margin: auto;
-  font-size: 4em;
+  font-size: 34px;
+  color: #4B79A1;
+  margin: 0;
+  float: left;
+  position: relative;
+  top: 6px;
 }
-h1 span {
+header h1 span {
   position: relative;
   top: 5px;
+}
+header nav ul {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+}
+header nav ul li {
+  float: right;
+  padding: 20px 20px;
+  font-family: 'Playfair Display', serif;
+  color: #000;
+}
+header nav ul a {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+}
+header nav ul a::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+header nav ul li.active a::after,
+header nav ul li:hover a::after {
+  opacity: 1;
+  bottom: -2px;
 }
 div.container {
   width: 95%;
@@ -39,10 +107,60 @@ div.container {
   margin: auto;
   text-align: center;
 }
-div.container #filters {
+#aboutMe .main-wrapper {
+  margin: 100px auto;
+  text-align: center;
+}
+#aboutMe .main-wrapper .picture {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+#aboutMe .main-wrapper .picture img {
+  border-radius: 50%;
+  max-width: 100%;
+}
+#aboutMe .main-wrapper p {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 300;
+  color: #FFF;
+}
+#aboutMe .main-wrapper p a {
+  text-decoration: none;
+  color: #FFF;
+  font-weight: 400;
+  position: relative;
+}
+#aboutMe .main-wrapper p a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FFF;
+  opacity: 0.2;
+  width: 0;
+  height: 100%;
+  transition: width 0.5s;
+}
+#aboutMe .main-wrapper p a::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #FFF;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+#aboutMe .main-wrapper p a:hover::before {
+  width: 100%;
+}
+#whatIDo #filters {
   margin: 40px 0;
 }
-div.container #filters a {
+#whatIDo #filters a {
   display: inline-block;
   background: #FFF;
   padding: 5px 10px;
@@ -51,30 +169,31 @@ div.container #filters a {
   margin: 0 10px;
   transition: background 0.5s, color 0.5s;
 }
-div.container #filters a:hover,
-div.container #filters a.active {
+#whatIDo #filters a:hover,
+#whatIDo #filters a.active {
   background: #000;
   color: #FFF;
 }
-div.container ul {
+#whatIDo ul {
   margin: auto;
   width: 100%;
   padding: 0;
+  list-style: none;
 }
-div.container ul li {
+#whatIDo ul li {
   width: 300px;
   display: inline-block;
   position: relative;
   margin-bottom: 10px;
 }
-div.container ul li div.cover {
+#whatIDo ul li div.cover {
   width: 100%;
 }
-div.container ul li div.cover img {
+#whatIDo ul li div.cover img {
   max-width: 100%;
   display: block;
 }
-div.container ul li div.description {
+#whatIDo ul li div.description {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -97,13 +216,13 @@ div.container ul li div.description {
   -webkit-align-items: center;
   align-items: center;
 }
-div.container ul li div.description h3 {
+#whatIDo ul li div.description h3 {
   margin: auto;
   color: #000;
   text-transform: uppercase;
   font-weight: 700;
   font-style: italic;
 }
-div.container ul li:hover div.description {
+#whatIDo ul li:hover div.description {
   opacity: 1;
 }
