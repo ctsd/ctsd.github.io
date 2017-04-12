@@ -222,4 +222,25 @@ $(document).ready(function() {
     applyFilters();
   });
 
+  $('.grid-item').click(function() {
+    var id = $(this).data('index');
+    $.get({
+      url: items[id].content,
+      cache: false
+    }).then(function(data) {
+      var converter = new showdown.Converter();
+      var html = converter.makeHtml(data);
+
+      $('.overlay .wrapper').html('');
+      $('.overlay .wrapper').append('<h2></h2>');
+      $('.overlay .wrapper h2').text(items[id].title);
+
+      $('.overlay .wrapper').append(html);
+      $('.overlay .wrapper a').attr('rel', 'nofollow');
+      $('.overlay .wrapper a').attr('target', '_BLANK');
+      $('.overlay').addClass('active');
+    });
+  });
+  $('.overlay .exit').click(function() { $(this).closest('.overlay').removeClass('active') });
+
 });

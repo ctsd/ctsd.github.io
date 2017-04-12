@@ -14,30 +14,59 @@
 	</head>
 
 	<body id="whatIDo">
-
-    <div class="container">
-
-			<div id="filters">
-
+		<header>
+			<div class="container">
+				<h1>
+					<span><</span> ctsd <span>/></span>
+				</h1>
+				<nav>
+					<ul>
+						<li><a href="main.html">About me</a></li>
+						<li class="active"><a href="what-i-do.html">What I do</a></li>
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
 			</div>
+		</header>
 
-      <ul class="grid">
+		<div class="overlay">
+			<div class="content">
+				<div class="exit"></div>
+				<div class="wrapper"></div>
+			</div>
+		</div>
 
-				<li class="grid-item initial" data-index="">
-          <div class="cover">
-            <img src="" alt="">
-          </div>
-          <div class="description">
-            <h3></h3>
-          </div>
-        </li>
+    <div class="main-wrapper">
+	    <div class="container">
 
-      </ul>
+				<p>
+					Here's a list of what I've worked on until now.<br />
+					You will find notes for each these technologies about what I've learnt and some related links.<br />
+					Or you can just play logo-guessing.
+				</p>
+
+				<div id="filters">
+				</div>
+
+	      <ul class="grid">
+
+					<li class="grid-item initial" data-index="">
+	          <div class="cover">
+	            <img src="" alt="">
+	          </div>
+	          <div class="description">
+	            <h3></h3>
+	          </div>
+	        </li>
+
+	      </ul>
+	    </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="./js/showdown.min.js"></script>
     <script src="./js/main.js"></script>
 	</body>
 
